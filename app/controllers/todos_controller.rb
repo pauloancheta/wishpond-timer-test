@@ -2,7 +2,7 @@ class TodosController < ApplicationController
   def create
     @todo = Todo.new(todo_params)
     @todo.save!
-    render nothing: true
+    redirect_to root_path
   end
 
   def update
@@ -10,6 +10,6 @@ class TodosController < ApplicationController
 
   private
   def todo_params
-    params.require(:todos).permit(:title, :note, :due_date, :time_left, :status)
+    params.require(:todo).permit(:title, :note, :due_date)
   end
 end

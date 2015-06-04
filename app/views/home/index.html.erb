@@ -1,1 +1,16 @@
 <h1>TODO!</h1>
+<%= simple_form_for @task do |t| %>
+  <%= t.input :title %>
+  <%= t.input :note %>
+  <%= t.input :due_date %>
+  <%= t.submit %>
+<% end %>
+<hr />
+<% @tasks.each do |t| %>
+  <%= t.title %> <br />
+  <%= t.note %> <br />
+  <%= t.due_date %> <br />
+  <%= t.time_left %> <br />
+  <%= t.status %> <br />
+  <hr />
+<% end %>
