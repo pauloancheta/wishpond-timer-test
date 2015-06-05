@@ -6,10 +6,19 @@ class TodosController < ApplicationController
   end
 
   def update
+    todo = Todo.find(params[:id])
+    todo.update(status: params[:status])
+    render nothing: true
+  end
+
+  def decrement
+    todo = Todo.find(params[:id])
+    todo.update(time_left: params[:time_left])
+    render nothing: true
   end
 
   private
   def todo_params
-    params.require(:todo).permit(:title, :note, :due_date)
+    params.require(:todo).permit(:title, :note, :due_date, :status, :time_left)
   end
 end
