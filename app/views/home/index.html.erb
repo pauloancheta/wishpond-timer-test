@@ -6,21 +6,25 @@
   <%= t.submit %>
 <% end %>
 <br />
-<% @tasks.each do |t| %>
   <table>
     <thead>
-      <td>Title</td>
-      <td>Note</td>
-      <td>Due Date</td>
-      <td>Time Left</td>
-      <td>Status</td>
+      <tr>
+        <td>Title</td>
+        <td>Note</td>
+        <td>Due Date</td>
+        <td>Time Left</td>
+        <td>Status</td>
+      </tr>
     </thead>
     <tbody>
+    <% @tasks.each do |t| %>
+      <tr>
       <td><%= t.title %></td>
       <td><%= t.note %></td>
-      <td class="due-date" id="<%= "#{dom_id(t)}" %>"><%= t.due_date %></td>
-      <td class="time-left"></td>
+      <td id="due-date-<%= "#{dom_id(t)}" %>"><%= t.due_date %></td>
+      <td id="time-left-<%= "#{dom_id(t)}" %>"></td>
       <td class="status"></td>
+      </tr>
+    <% end %>
     </tbody>
   </table>
-<% end %>
