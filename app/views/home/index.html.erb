@@ -5,12 +5,22 @@
   <%= t.input :due_date %>
   <%= t.submit %>
 <% end %>
-<hr />
+<br />
 <% @tasks.each do |t| %>
-  <%= t.title %> <br />
-  <%= t.note %> <br />
-  <%= t.due_date %> <br />
-  <%= t.time_left %> <br />
-  <%= t.status %> <br />
-  <hr />
+  <table>
+    <thead>
+      <td>Title</td>
+      <td>Note</td>
+      <td>Due Date</td>
+      <td>Time Left</td>
+      <td>Status</td>
+    </thead>
+    <tbody>
+      <td><%= t.title %></td>
+      <td><%= t.note %></td>
+      <td class="due-date" id="<%= "#{dom_id(t)}" %>"><%= t.due_date %></td>
+      <td class="time-left"></td>
+      <td class="status"></td>
+    </tbody>
+  </table>
 <% end %>
