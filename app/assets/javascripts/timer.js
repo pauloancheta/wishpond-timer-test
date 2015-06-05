@@ -11,10 +11,10 @@ $(document).ready(function(){
 
   for(var i = 1;  i <= all_dates; i++){
     if(dateArray[i] !== 'undefined'){
-      console.log('hello')
+      console.log(dateArray[i])
+      $('td#time-left-todo_' + i ).append(dateNow - dateArray[i])
     }
   }
 
-  console.log(dateArray)
   
 });
