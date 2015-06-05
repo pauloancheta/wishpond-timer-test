@@ -23,7 +23,7 @@
       <td><%= t.note %></td>
       <td id="due-date-<%= "#{dom_id(t)}" %>"><%= t.due_date %></td>
       <td id="time-left-<%= "#{dom_id(t)}" %>"></td>
-      <td class="status"><%= t.status %></td>
+      <td id="status-<%= "#{dom_id(t)}" %>"><%= t.status %></td>
       </tr>
     <% end %>
     </tbody>

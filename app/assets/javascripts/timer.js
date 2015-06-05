@@ -17,13 +17,14 @@ $(document).ready(function(){
         method: 'PATCH',
         data: {status: 'due'}
       })
+      // $('td#status-'+ i).text('due')
     }
     else {
       $('td#time-left-todo_' + i ).append(0)
       $.ajax({
         url: 'todos/' + i,
         method: 'PATCH',
-        data: {status: 'past done'}
+        data: {status: 'past due'}
       })
     }
   }
@@ -35,12 +36,6 @@ $(document).ready(function(){
       setInterval(function(){
         num = num - 1
         $('td#time-left-todo_' + index ).html(num)
-
-        $.ajax({
-          url: '/decrement/' + index,
-          method: 'PATCH',
-          data: {time_left: num}
-        })
       }, 1000)
     }
   })
